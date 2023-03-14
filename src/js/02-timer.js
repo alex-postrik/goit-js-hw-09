@@ -2,7 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
-// пошук елементів
+
 const text = document.querySelector('#datetime-picker');
 const timerHtml = document.querySelector('.timer');
 const btnStart = document.querySelector('button[data-start]');
@@ -11,7 +11,7 @@ const minutes = document.querySelector('span[data-minutes]');
 const hours = document.querySelector('span[data-hours]');
 const days = document.querySelector('span[data-days]');
 
-btnStart.disabled = true; // початковий стан кнопки: вимкнена
+btnStart.disabled = true; //вимкнена
 
 // об'єкт параметрів
 const options = {
@@ -73,14 +73,14 @@ btnStart.addEventListener('click', () => {
       minutes.textContent = addLeadingZero(timeObject.minutes);
       seconds.textContent = addLeadingZero(timeObject.seconds);
 
-      // якщо зоротній відлік меньше-рвіне 10 секунд
+      // якщо зоротній відлік меньше 10 секунд
       if (countdown <= 10000) {
         timerHtml.style.color = 'red';
       }
     } else {
       Notiflix.Notify.success('Countdown finished');
       timerHtml.style.color = 'black';
-      clearInterval(timer); // очистити таймер
+      clearInterval(timer);
     }
   }, 1000);
 });
